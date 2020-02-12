@@ -1,0 +1,22 @@
+--TEST--
+"trunc" filter
+--TEMPLATE--
+{{ data|trunc(2, false, '...') }}
+{{ data|trunc(6, false, '...') }}
+{{ data|trunc(2, true, '...') }}
+{{ data|trunc(2, true, '[...]') }}
+{{ data|trunc(23, false, '...') }}
+{{ data|trunc(23, true, '...') }}
+
+--DATA--
+return [
+    'data' => 'This is a very long sentence.',
+]
+
+--EXPECT--
+Th...
+This i...
+This...
+This[...]
+This is a very long sen...
+This is a very long sentence.

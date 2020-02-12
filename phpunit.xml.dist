@@ -19,6 +19,12 @@
         </testsuite>
     </testsuites>
 
+    <groups>
+        <exclude>
+            <group>legacy</group>
+        </exclude>
+    </groups>
+
     <filter>
         <whitelist>
             <directory>./</directory>
