@@ -1,0 +1,10 @@
+--TEST--
+"instanceof" filter
+--TEMPLATE--
+{{ date1 is  instanceof("\\DateTime") ? 'ok' : 'ko' }}
+--DATA--
+return [
+    'date1' => new \DateTime('2010-10-04 13:45'),
+]
+--EXPECT--
+ok
