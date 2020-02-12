@@ -10,6 +10,75 @@ The preferred method of installation is via Composer. Run the following command 
 composer require gubler/twig-extensions
 ```
 
+## Extensions
+
+### FileIconClass
+
+This maps a mimetype to a FontAwesome file icon. This currently only supports the following filetypes:
+
+- MS Word
+- MS Excel
+- MS PowerPoint
+- PDF
+
+All other files return a generic file icon.
+
+```twig
+{{ 'application/vnd.ms-excel'|fileIconClass }}
+```
+
+### FlashMessages
+
+This extension will iterate through the flashes of a given Session and convert them to Bootstrap 4 alerts.
+
+This looks for the flash keys of `success`, `warning`, `error`, and `notice`.
+
+Creating the flashes:
+```php
+# In a Symfony controller:
+$this->addFlash('success', 'This is a SUCCESS message');
+$this->addFlash('error', 'This is an ERROR message');
+$this->addFlash('warning', 'This is a WARNING message');
+$this->addFlash('notice', 'This is a NOTICE message');
+``` 
+
+Rendering all flashes:
+
+```twig
+{{ flashMessages(app.session) }}
+```
+
+### InstanceOf
+
+This extension provides PHP's `instanceof` type operator as a Twig test.
+
+```twig
+{# date is \DateTime object #}
+{{ date is instanceof("\\DateTime") ? 'ok' : 'bad' }}
+```
+
+### TableSortIcon
+
+This filter allows you to pass the column name, the sorted column name, and sort direction and get back a FontAwesome sorting icon classes.
+
+```twig
+<i class="{{ tableSortIcon('col1', 'col1', 'asc') }}"></i>
+```
+
+### Truncate
+
+**NOTE:** This filter is only available until [this pull request](https://github.com/symfony/symfony/pull/35649) is merged and released.
+
+The new String component's truncate feature does not currently support the "preserve" feature from the truncate function on the older Twig-Extensions package.
+
+This is literally the Twig-Extensions' truncate filter extracted and made available for Twig 3.
+
+This uses the `trunc` name for the filter so it does not conflict with either of the existing `truncate` filters from String or Twig-Extensions.
+
+```twig
+{{ 'Really long string'|trunc(5, true, '> more') }}
+```
+
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING][contributing] for details.

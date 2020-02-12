@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Gubler\Twig\Extension;
 
-use Gubler\Twig\Lib\MimeTypeToIconClass;
+use Gubler\Twig\Extension\Lib\MimeTypeToIconClass;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
