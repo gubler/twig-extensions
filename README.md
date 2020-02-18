@@ -10,6 +10,38 @@ The preferred method of installation is via Composer. Run the following command 
 composer require gubler/twig-extensions
 ```
 
+### Configuration
+
+```php
+$twig = new Twig_Environment($loader, $options);
+$twig->addExtension(new Gubler\Twig\Extension\FileIconClassExtension());
+$twig->addExtension(new Gubler\Twig\Extension\FlashMessagesExtension());
+$twig->addExtension(new Gubler\Twig\Extension\InstanceOfExtension());
+$twig->addExtension(new Gubler\Twig\Extension\TableSortIconExtension());
+$twig->addExtension(new Gubler\Twig\Extension\TruncateExtension());
+```
+
+For Symfony, register it in your `services.yaml`
+
+```yaml
+services:
+    gubler.twig_extension.file_icon_class:
+        class: Gubler\Twig\Extension\FileIconClassExtension
+        tags: [twig.extension]
+    gubler.twig_extension.flash_messages:
+        class: Gubler\Twig\Extension\FlashMessagesExtension
+        tags: [twig.extension]
+    gubler.twig_extension.instance_of:
+        class: Gubler\Twig\Extension\InstanceOfExtension
+        tags: [twig.extension]
+    gubler.twig_extension.table_sort_icon:
+        class: Gubler\Twig\Extension\TableSortIconExtension
+        tags: [twig.extension]
+    gubler.twig_extension.truncate:
+        class: Gubler\Twig\Extension\TruncateExtension
+        tags: [twig.extension]
+```
+
 ## Extensions
 
 ### FileIconClass
