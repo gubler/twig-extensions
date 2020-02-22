@@ -42,6 +42,13 @@ services:
         tags: [twig.extension]
 ```
 
+You can also use the `MimeTypeToIconClass` library directly and inject it into your classes by registering it as a service:
+
+```yaml
+services:
+    Gubler\Twig\Extension\Lib\MimeTypeToIconClass: ~
+```    
+
 ## Extensions
 
 ### FileIconClass
