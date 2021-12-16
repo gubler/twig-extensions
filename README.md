@@ -18,7 +18,6 @@ $twig->addExtension(new Gubler\Twig\Extension\FileIconClassExtension());
 $twig->addExtension(new Gubler\Twig\Extension\FlashMessagesExtension());
 $twig->addExtension(new Gubler\Twig\Extension\InstanceOfExtension());
 $twig->addExtension(new Gubler\Twig\Extension\TableSortIconExtension());
-$twig->addExtension(new Gubler\Twig\Extension\TruncateExtension());
 ```
 
 For Symfony, register it in your `services.yaml`
@@ -36,9 +35,6 @@ services:
         tags: [twig.extension]
     gubler.twig_extension.table_sort_icon:
         class: Gubler\Twig\Extension\TableSortIconExtension
-        tags: [twig.extension]
-    gubler.twig_extension.truncate:
-        class: Gubler\Twig\Extension\TruncateExtension
         tags: [twig.extension]
 ```
 
@@ -68,7 +64,7 @@ All other files return a generic file icon.
 
 ### FlashMessages
 
-This extension will iterate through the flashes of a given Session and convert them to Bootstrap 4 alerts.
+This extension will iterate through the flashes of a given Session and convert them to Bootstrap 5 alerts.
 
 This looks for the flash keys of `success`, `warning`, `error`, and `notice`.
 
@@ -102,20 +98,6 @@ This filter allows you to pass the column name, the sorted column name, and sort
 
 ```twig
 <i class="{{ tableSortIcon('col1', 'col1', 'asc') }}"></i>
-```
-
-### Truncate
-
-**NOTE:** This filter is only available until [this pull request](https://github.com/symfony/symfony/pull/35649) is merged and released.
-
-The new String component's truncate feature does not currently support the "preserve" feature from the truncate function on the older Twig-Extensions package.
-
-This is literally the Twig-Extensions' truncate filter extracted and made available for Twig 3.
-
-This uses the `trunc` name for the filter so it does not conflict with either of the existing `truncate` filters from String or Twig-Extensions.
-
-```twig
-{{ 'Really long string'|trunc(5, true, '> more') }}
 ```
 
 ## Contributing

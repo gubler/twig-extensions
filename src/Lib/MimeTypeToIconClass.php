@@ -12,18 +12,11 @@ class MimeTypeToIconClass
     public const ICON_PDF = 'far fa-file-pdf';
     public const ICON_FILE = 'far fa-file';
 
-    /** @var string */
-    protected $iconClass;
-    /** @var string */
-    protected $fileExtension;
-    /** @var string */
-    protected $mimeType;
+    protected string $iconClass;
+    protected string $fileExtension;
+    protected string $mimeType;
 
-    /**
-     * @param string $mimeType
-     * @param string $fileName
-     */
-    public function getIconClass($mimeType, $fileName): string
+    public function getIconClass(string $mimeType, string $fileName): string
     {
         $this->iconClass = self::ICON_FILE;
         $filenameParts = explode('.', $fileName);
@@ -54,7 +47,7 @@ class MimeTypeToIconClass
     }
 
     /**
-     * Check if file is an Powerpoint file and if so, set the icon class.
+     * Check if file is a PowerPoint file and if so, set the icon class.
      */
     protected function checkPowerpoint(): void
     {
@@ -69,7 +62,7 @@ class MimeTypeToIconClass
     }
 
     /**
-     * Check if file is an Word file and if so, set the icon class.
+     * Check if file is a Word file and if so, set the icon class.
      */
     protected function checkWord(): void
     {
@@ -84,7 +77,7 @@ class MimeTypeToIconClass
     }
 
     /**
-     * Check if file is an PDF file and if so, set the icon class.
+     * Check if file is a PDF file and if so, set the icon class.
      */
     protected function checkPDF(): void
     {

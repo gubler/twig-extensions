@@ -22,16 +22,13 @@ class TableSortIconExtension extends AbstractExtension
         ];
     }
 
-    /**
-     * @param string $column
-     * @param string $sortedColumn
-     * @param string $sortDirection
-     */
-    public function renderTableSortIcon($column, $sortedColumn, $sortDirection): string
+    public function renderTableSortIcon(string $column, string $sortedColumn, string $sortDirection): string
     {
         if ($column === $sortedColumn && 'asc' === $sortDirection) {
             return '<i class="fas fa-chevron-circle-down pull-right"></i>';
-        } elseif ($column === $sortedColumn && 'desc' === $sortDirection) {
+        }
+
+        if ($column === $sortedColumn && 'desc' === $sortDirection) {
             return '<i class="fas fa-chevron-circle-up pull-right"></i>';
         }
 

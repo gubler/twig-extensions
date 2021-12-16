@@ -22,8 +22,6 @@ class FileIconClassExtension extends AbstractExtension
 
     public function mimeTypeToFileIconClass(string $mimeType): string
     {
-        $converter = new MimeTypeToIconClass();
-
-        return $converter->getIconClass($mimeType, 'no.filename');
+        return (new MimeTypeToIconClass())->getIconClass($mimeType, 'no.filename');
     }
 }

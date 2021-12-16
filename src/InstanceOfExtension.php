@@ -20,10 +20,9 @@ class InstanceOfExtension extends AbstractExtension
     }
 
     /**
-     * @param mixed  $var
-     * @param string $instance
+     * @param class-string $instance
      */
-    public function isInstanceof($var, $instance): bool
+    public function isInstanceof(mixed $var, string $instance): bool
     {
         return $var instanceof $instance;
     }
