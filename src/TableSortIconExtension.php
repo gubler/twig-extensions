@@ -9,6 +9,9 @@ use Twig\TwigFunction;
 
 class TableSortIconExtension extends AbstractExtension
 {
+    public const SORT_ICON_CLASSES_ASC = 'fas fa-chevron-circle-down';
+    public const SORT_ICON_CLASSES_DESC = 'fas fa-chevron-circle-up';
+
     public function getFunctions(): array
     {
         return [
@@ -22,14 +25,19 @@ class TableSortIconExtension extends AbstractExtension
         ];
     }
 
-    public function renderTableSortIcon(string $column, string $sortedColumn, string $sortDirection): string
-    {
+    public function renderTableSortIcon(
+        string $column,
+        string $sortedColumn,
+        string $sortDirection,
+        string $sortIconClassesAsc = self::SORT_ICON_CLASSES_ASC,
+        string $sortIconClassesDesc = self::SORT_ICON_CLASSES_DESC,
+    ): string {
         if ($column === $sortedColumn && 'asc' === $sortDirection) {
-            return '<i class="fas fa-chevron-circle-down pull-right"></i>';
+            return '<i class="i' . $sortIconClassesAsc . ' pull-right"></i>';
         }
 
         if ($column === $sortedColumn && 'desc' === $sortDirection) {
-            return '<i class="fas fa-chevron-circle-up pull-right"></i>';
+            return '<i class="' . $sortIconClassesDesc . ' pull-right"></i>';
         }
 
         return '';

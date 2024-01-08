@@ -1,5 +1,9 @@
 # Gubler\TwigExtensions Changelog
 
+## v1.1.0
+
+- Require PHP 8.1 or greater and Symfony 6.0 or greater
+
 ## v1.0.0
 
 ### Change
